@@ -1,0 +1,13 @@
+第一张表有id和keyword
+第二张表有keyword，日期，title，被引用量，作者
+
+导入的格式应该为：
+a,b,c,d,e!
+
+主函数main：得到所有关键词，将所有二级函数的
+二级函数：得到一个关键词的所有数据——几个要素数组；title【】，keyword【】，author【】，date【】，num【】,
+将这几个要素数组组合一下一项项压入主对象
+三级函数：function wirteData(keyword,num,callback)
+最后返回一个[[][][][][]]
+
+

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="javascripts/echarts.js"></script> <!--我修改了46614行-->
+    <script src="javascripts/jquery.js"></script>
+    <script src="javascripts/main.js"></script>
+    <link rel="stylesheet" href="stylesheets/style.css">
+</head>
+<body>
+<div id="search_keyW">
+    <input id="info" type="text"/><button id="submit">搜索</button><br>
+</div>
+<div id="content">
+    <div id="nextLayerKey"></div>
+    <div id="graph-holder">
+        width:
+        <input id="width" value="3">
+        <!--<select name="width" id="width">-->
+        <!--<option value="1">1</option>-->
+        <!--<option value="2">2</option>-->
+        <!--<option value="3">3</option>-->
+        <!--<option value="4">4</option>-->
+        <!--<option value="5">5</option>-->
+        <!--<option value="6">6</option>-->
+        <!--</select>-->
+        depth:<select name="depth" id="depth">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+    </select>
+        <div id="main" style="width: 1000px;height: 650px"></div>
+    </div>
+    <div id="search">
+        排序方式：<select name="searchWay" id="searchWay">
+        <option value="1">默认排序</option>
+        <option value="2">时间顺序</option>
+        <option value="3">引用次数</option>
+    </select>找到<span id="result_num">0</span>条结果
+        <div id="page">
+            <button id="prev">Prev</button><input id="curPage" type="text" value="1">/<span id="totalPage"></span><button id="next">Next</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>
