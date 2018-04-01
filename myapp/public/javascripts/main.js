@@ -75,8 +75,8 @@ window.onload = function () {
             if(params.seriesType==='graph'){
                 if(params.dataType==='node'){
                     var id = parseInt(params.data.value);
-                    var name = params.data.name.split('\n').join(',');
-                    console.log(name);
+                    // var name = params.data.name.split('\n').join(',');
+                    // console.log(name);
                     widthValue = width.value;
                     depthValue = depth.value;
                     $.get('/knowMap/getPointNext',{keyword:id,width:widthValue,depth:depthValue},function(data){
@@ -88,7 +88,7 @@ window.onload = function () {
                             }]
                         });
                     });
-                    $.get('/search',{keyword:name},function (data) {
+                    $.get('/search/next',{id:id},function (data) {
                         search.changeData(data);
                         search.writeTitle();
                         search.dividePage();
@@ -122,6 +122,7 @@ window.onload = function () {
             search.dividePage();
         })
     });
+
     var search = (function () {
         function handlerP() {
             search.listenerPre();
@@ -218,11 +219,11 @@ function leftKeyword(keyword) {
     if(keyword===undefined){
         return;
     }
+    keyword = keyword.slice(0,15);
     var nextLayerKey = document.getElementById('nextLayerKey');
     var fragment = document.createDocumentFragment();
     var ul = document.createElement('ul');
     var li = null;
-    console.log(keyword);
     keyword.forEach(function (item) {
         li = document.createElement('li');
         li.innerHTML = item;

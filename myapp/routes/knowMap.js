@@ -4,6 +4,9 @@
 /**
  * Created by HP on 2018/3/5.
  */
+/**
+ * Created by HP on 2018/3/5.
+ */
 var express = require('express');
 var bodyParser = require('body-parser');
 var router = express.Router();
@@ -57,9 +60,9 @@ router.get('/getPoint', function(req, res, next) {
             case 1:res.send("数据库连接失败！sql1");break;
             case 2:
                 if(results.length==0){
-                res.send("关键词不存在");
+                    res.send("关键词不存在");
                     return;
-            }
+                }
                 var id=results[0]['_id'];
                 var sql2 = `SELECT _id,fah,chd,extent,intent FROM points WHERE intent LIKE '%${id}%'`;
                 var sql3 = `SELECT _id,keyword FROM keywords WHERE 1`;
@@ -80,8 +83,8 @@ router.get('/getPoint', function(req, res, next) {
                                         pointArr[0] = results.filter(function(item1,index,array){
                                             return array.every(function(item2){
                                                 return item2['chd'].split(',').map(function(item){
-                                                        return Number(item)
-                                                    }).indexOf(Number(item1['_id']))===-1;//求出第一个点
+                                                    return Number(item)
+                                                }).indexOf(Number(item1['_id']))===-1;//求出第一个点
                                             })
                                         });
                                         pointArr[1] = getFirstChild(pointArr[0],allPoint,width);
